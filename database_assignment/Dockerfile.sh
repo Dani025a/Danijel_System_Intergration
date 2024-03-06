@@ -1,6 +1,5 @@
 
 POSTGRES_USER=user_management_user
-POSTGRES_PASSWORD=usermanagementpassword
 POSTGRES_DB=mydatabase
 SQL_SCRIPT="init.sql"
 
