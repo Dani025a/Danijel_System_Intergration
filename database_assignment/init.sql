@@ -43,7 +43,6 @@ INSERT INTO books (title, author_id, publish_date, isbn, description) VALUES
 
 -- Create users with different permissions
 -- All PRIVILEGES Admin
-CREATE USER admin_user WITH PASSWORD '123';
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin_user;
 
 -- Author and books PRIVILEGES Author
