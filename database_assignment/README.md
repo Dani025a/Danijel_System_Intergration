@@ -17,7 +17,10 @@ This guide explains how to install and set up the database using Docker, and pro
      - In the "System Variables" section, select the "Path" variable and click on "Edit".
      - Add the path to the PostgreSQL bin directory (e.g., `C:\Program Files\PostgreSQL\13\bin`) to the list of paths.
      - Click "OK" to save the changes.
-
+     - You can check PostgreSQL versio, to make sure that you have installed PostgreSQL correct
+    ```bash
+    psql --version
+    ```
 4. Navigate to the project directory in your terminal.
 
 5. Run the following command to build the Docker image and set up the database:
