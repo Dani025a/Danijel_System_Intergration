@@ -56,5 +56,4 @@ GRANT SELECT ON authors, books TO user_user;
 GRANT SELECT (firstname, lastname, email, address), 
       INSERT (firstname, lastname, email, address), 
       UPDATE (firstname, lastname, email, address), 
-      DELETE (firstname, lastname, email, address) 
 ON users TO user_user;
