@@ -14,7 +14,6 @@ For individuals already operating within Ubuntu, it might be relatively straight
 
 The first and second commands executed successfully. However, upon attempting bash /home/db-setup/setup.sh or psql -U rwuser -d postgres, errors surfaced.
 
-This markdown file communicates the situation professionally and maintains clarity regarding the encountered issues.
 
 ![Screenshot 4](https://github.com/Dani025a/Danijel_System_Intergration/blob/main/04_c_db_granular_access_integration/Sk%C3%A6rmbillede%202024-03-06%20210505.png?raw=true)
 
