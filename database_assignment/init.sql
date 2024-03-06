@@ -52,5 +52,5 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON authors, books TO author_user;
 
 -- User PRIVILEGES Users
 CREATE USER user_user WITH PASSWORD '123';
-GRANT SELECT ON authors, books TO user_with_specific_access;
-GRANT SELECT, INSERT, UPDATE, DELETE (firstname, lastname, email, address) ON users TO user_with_specific_access;
+GRANT SELECT ON authors, books TO user_user;
+GRANT SELECT, INSERT, UPDATE, DELETE (firstname, lastname, email, address) ON users TO user_user;
