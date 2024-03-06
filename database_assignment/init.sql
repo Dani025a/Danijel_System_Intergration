@@ -25,16 +25,16 @@ CREATE TABLE books (
 
 -- Create users with different permissions
 -- All PRIVILEGES Admin
-CREATE USER admin_user WITH PASSWORD 'adminpassword';
+CREATE USER admin_user WITH PASSWORD '123';
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin_user;
 
 -- Author and books PRIVILEGES Author
-CREATE USER author_user WITH PASSWORD 'authorpassword';
+CREATE USER author_user WITH PASSWORD '123';
 GRANT SELECT, INSERT, UPDATE, DELETE ON authors, books TO author_user;
 
 
 -- User PRIVILEGES Users
-CREATE USER user_management_user WITH PASSWORD 'usermanagementpassword';
+CREATE USER user_management_user WITH PASSWORD '123';
 GRANT SELECT ON authors, books TO user_with_specific_access;
 GRANT SELECT, INSERT, UPDATE, DELETE (firstname, lastname, email, address) ON users TO user_with_specific_access;
 
