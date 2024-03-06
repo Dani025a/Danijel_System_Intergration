@@ -1,6 +1,7 @@
+FROM postgres:latest
 
-POSTGRES_USER=user_management_user
-POSTGRES_DB=mydatabase
-SQL_SCRIPT="init.sql"
+ENV POSTGRES_USER=user_management_user
+ENV POSTGRES_PASSWORD=usermanagementpassword
+ENV POSTGRES_DB=mydatabase
 
-psql -h localhost -U "$POSTGRES_USER" -d "$POSTGRES_DB" -a -f "$SQL_SCRIPT"
+COPY init.sql /docker-entrypoint-initdb.d/
