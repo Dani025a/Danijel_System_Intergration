@@ -32,9 +32,11 @@ GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin_user;
 CREATE USER author_user WITH PASSWORD 'authorpassword';
 GRANT SELECT, INSERT, UPDATE, DELETE ON authors, books TO author_user;
 
+
 -- User PRIVILEGES Users
 CREATE USER user_management_user WITH PASSWORD 'usermanagementpassword';
-GRANT SELECT, INSERT, UPDATE, DELETE ON users TO user_management_user;
+GRANT SELECT ON authors, books TO user_with_specific_access;
+GRANT SELECT, INSERT, UPDATE, DELETE (firstname, lastname, email, address) ON users TO user_with_specific_access;
 
 -- Users
 INSERT INTO users (firstname, lastname, email, password, address) VALUES
@@ -54,17 +56,4 @@ INSERT INTO books (title, author_id, publish_date, isbn, description) VALUES
 ('Harry Potter and the Philosopher''s Stone', 2, '1997-06-26', '978-0747532743', 'The first book in the Harry Potter series by J.K. Rowling.'),
 ('Murder on the Orient Express', 3, '1934-01-01', '978-0007119318', 'A detective novel by Agatha Christie.');
 
--- Create users with different permissions
--- All PRIVILEGES Admin
-CREATE USER admin_user WITH PASSWORD 'adminpassword';
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin_user;
 
--- Author and books PRIVILEGES Author
-CREATE USER author_user WITH PASSWORD 'authorpassword';
-GRANT SELECT, INSERT, UPDATE, DELETE ON authors, books TO author_user;
-
-
--- User PRIVILEGES Users
-CREATE USER user_management_user WITH PASSWORD 'usermanagementpassword';
-GRANT SELECT ON authors, books TO user_with_specific_access;
-GRANT SELECT, INSERT, UPDATE, DELETE (firstname, lastname, email, address) ON users TO user_with_specific_access;
