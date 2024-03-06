@@ -100,8 +100,8 @@ psql -h localhost -U author_user -d mydatabase -c "INSERT INTO books (title, aut
 ```bash
 
 # Query users
-psql -h localhost -U user_management_user -d mydatabase -c "SELECT * FROM users"
+psql -h localhost -U user_user -d mydatabase -c "SELECT * FROM users"
 
 # Update user information
-psql -h localhost -U user_management_user -d mydatabase -c "UPDATE users SET address = 'New Address' WHERE user_id = 1"
+psql -h localhost -U user_user -d mydatabase -c "UPDATE users SET address = 'New Address' WHERE user_id = 1"
 ```
