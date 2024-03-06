@@ -40,22 +40,22 @@ This guide explains how to install and set up the database using Docker, and pro
 ### Admin User
 
 - Username: admin_user
-- Password: adminpassword
+- Password: 123
 - Privileges:
   - Full access to all tables in the public schema.
 
 ### Author User
 
 - Username: author_user
-- Password: authorpassword
+- Password: 123
 - Privileges:
   - SELECT, INSERT, UPDATE, DELETE on the authors table.
   - SELECT, INSERT, UPDATE, DELETE on the books table.
 
 ### User Management User
 
-- Username: user_management_user
-- Password: usermanagementpassword
+- Username: user_user
+- Password: 123
 - Privileges:
   - SELECT, INSERT, UPDATE, DELETE on the users table.
   - SELECT on the books table.
