@@ -45,6 +45,8 @@ This guide explains how to install and set up the database using Docker, and pro
 - Password: usermanagementpassword
 - Privileges:
   - SELECT, INSERT, UPDATE, DELETE on the users table.
+  - SELECT on the books table.
+  -  SELECT on the authors table.
 
 ## Example Commands
 
