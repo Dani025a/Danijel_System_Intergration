@@ -31,7 +31,6 @@ db.on('error', (error) => {
  */
 app.post('/payment_received', (req, res) => {
   console.log('Received payment_received event.');
-  // Your logic to handle the payment received event
   res.status(200).send('Payment received event handled successfully.');
 });
 
@@ -43,18 +42,39 @@ app.post('/payment_received', (req, res) => {
  */
 app.post('/payment_processed', (req, res) => {
   console.log('Received payment_processed event.');
-  // Your logic to handle the payment processed event
   res.status(200).send('Payment processed event handled successfully.');
+});
+/**
+ * Endpoint to handle invoice processing event.
+ * @method POST
+ * @endpoint /invoice_processing
+ * @returns {object} Response object with message indicating success.
+ */
+app.post('/invoice_processing', (req, res) => {
+  console.log('Received invoice_processing event.');
+  res.status(200).send('Invoice processing event handled successfully.');
+});
+
+/**
+ * Endpoint to handle invoice completed event.
+ * @method POST
+ * @endpoint /invoice_completed
+ * @returns {object} Response object with message indicating success.
+ */
+app.post('/invoice_completed', (req, res) => {
+  console.log('Received invoice_completed event.');
+  res.status(200).send('Invoice completed event handled successfully.');
 });
 
 /**
  * Ping endpoint to send test event to all registered webhooks.
  * @method POST
  * @endpoint /ping
- * @returns {object} Response object with message indicating success or failure.
+ * @returns {object} Response object with message indicating success or failure and list of endpoints pinged.
  */
 app.post('/ping', async (req, res) => {
   try {
+    const pingedEndpoints = [];
     const rows = await new Promise((resolve, reject) => {
       db.all("SELECT endpoint FROM webhooks", (err, rows) => {
         if (err) reject(err);
@@ -66,12 +86,16 @@ app.post('/ping', async (req, res) => {
       try {
         await axios.post(row.endpoint); // Changed to axios.post
         console.log(`Calling webhook at: ${row.endpoint}`);
+        pingedEndpoints.push(row.endpoint);
       } catch (error) {
         console.error(`Failed to call webhook at ${row.endpoint}:`, error.message);
       }
     }
 
-    res.status(200).json({ message: 'Ping event sent to all registered webhooks' });
+    res.status(200).json({ 
+      message: 'Ping event sent to all registered webhooks',
+      pingedEndpoints: pingedEndpoints
+    });
   } catch (error) {
     console.error('Failed to fetch registered webhooks:', error.message);
     res.status(500).json({ error: 'Failed to fetch registered webhooks' });

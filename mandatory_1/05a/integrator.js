@@ -35,6 +35,8 @@ async function pingEvent() {
 
   await registerWebhook('payment_received', 'http://localhost:3000/payment_received');
   await registerWebhook('payment_processed', 'http://localhost:3000/payment_processed');
-  
+  await registerWebhook('payment_processed', 'http://localhost:3000/invoice_processing');
+  await registerWebhook('payment_processed', 'http://localhost:3000/invoice_completed');
+
   await pingEvent();
   
