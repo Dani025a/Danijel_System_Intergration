@@ -32,17 +32,9 @@ async function pingEvent() {
   }
 }
 
-setTimeout(async () => {
+
   await registerWebhook('payment_received', 'http://localhost:3000/payment_received');
   await registerWebhook('payment_processed', 'http://localhost:3000/payment_processed');
   
   await pingEvent();
   
-  await registerWebhook('payment_received', 'http://localhost:3000/payment_received');
-  await registerWebhook('payment_processed', 'http://localhost:3000/payment_processed');
-  
-  await pingEvent();
-  
-  await unregisterWebhook('http://localhost:3000/payment_received');
-  await unregisterWebhook('http://localhost:3000/payment_processed');
-}, 2000);
