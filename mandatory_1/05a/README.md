@@ -1,6 +1,5 @@
 # Exposee Server
 
-Exposee Server is a simple server application that provides endpoints to register, unregister webhooks, and handle events. It utilizes Express.js for the server and Axios for making HTTP requests.
 
 ## Installation
 
