@@ -16,9 +16,8 @@
         const poll = async () => {
             const response = await fetch("/randomNumbers");
             const result = await response.json();
-            randomNumbersDiv.textContent = result.data.join("  ");
+            randomNumbersDiv.textContent = result.data.join(" ");
         };
-
         setInterval(poll, DELAY);
     </script>
 </body>
