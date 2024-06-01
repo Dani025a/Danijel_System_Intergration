@@ -1,13 +1,19 @@
 import express from "express";
+import cors from "cors";
+
 const app = express();
 
 app.use(express.static("public"));
+
+app.use(cors());
+
 
 app.get("/synchronize-time", (req, res) => {
     res.writeHead(200, {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
-        "Connection": "keep-alive"
+        "Connection": "keep-alive",
+        "Access-Control-Allow-Origin": "*"
     });
 
     setInterval(() => sendTimeToClient(res), 1000);

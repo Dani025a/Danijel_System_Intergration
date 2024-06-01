@@ -18,7 +18,7 @@
         const serverSentStatusDiv = document.getElementById("server-sent_status");
         const serverSentTimeDiv = document.getElementById("server-sent_time");
 
-        const eventSource = new EventSource("/synchronize-time");
+        const eventSource = new EventSource("http://localhost:8080/synchronize-time");
 
         eventSource.addEventListener("message", (event) => {
             serverSentTimeDiv.textContent = event.data;
